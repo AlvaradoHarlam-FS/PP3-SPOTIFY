@@ -9,13 +9,13 @@ require('body-parser').json()
 const app = express()
 app.use(cors());
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 
 const artistsRoutes = require('./routes/artists')
 const albumsRoutes = require('./routes/albums')
 const songsRoutes = require('./routes/songs')
 
-const DATABASE_URL = process.env.DATABASE;
+const DATABASE = process.env.DATABASE;
 
 mongoose.set('strictQuery', false);
 mongoose.connect(DATABASE, {})
@@ -26,7 +26,7 @@ db.once('open', () => console.log('Database Connection Established'));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send("I got it working!")
+    res.send("Is working!")
   });
 
 app.use('/api/artists', artistsRoutes);
