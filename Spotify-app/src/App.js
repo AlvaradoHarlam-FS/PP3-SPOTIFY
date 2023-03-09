@@ -2,9 +2,11 @@ import {useEffect, useState} from "react";
 import './App.css';
 import axios from 'axios';
 
+
 function App() {
-    const CLIENT_ID = "aa1245fdc0934b829ad5f4186d15da43"
-    const REDIRECT_URI = "http://localhost:8888/callback "
+ 
+    const CLIENT_ID = `${process.env.CLIENT_ID}`;
+    const REDIRECT_URI = "http://localhost:3000/webapp";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
 
@@ -16,7 +18,7 @@ function App() {
     //     let urlParams = new URLSearchParams(window.location.hash.replace("#","?"));
     //     let token = urlParams.get('access_token');
     // }
-
+  
     useEffect(() => {
         const hash = window.location.hash
         let token = window.localStorage.getItem("token")
@@ -58,8 +60,10 @@ function App() {
     const renderArtists = () => {
         return artists.map(artist => (
             <div key={artist.id}>
-                {artist.images.length ? <img width={"100%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}
+                {artist.images.length ? <img width={"50%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}
                 {artist.name}
+                {artist.description}
+                {artist.music}
             </div>
         ))
     }
@@ -90,3 +94,6 @@ function App() {
 }
 
 export default App;
+
+
+
