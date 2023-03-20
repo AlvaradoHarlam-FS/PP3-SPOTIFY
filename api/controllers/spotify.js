@@ -10,7 +10,7 @@
         } else if ( now > req.token.expires_in) {
             const refreshToken = req.token.refreshToken
             const spotifyApi = new SpotifyWebApi({
-                redirectUri: "http://localhost:3000/",
+                redirectUri: process.env.REDIRECT_URI,
                 clientId: process.env.CLIENT_ID,
                 clientSecret: process.env.CLIENT_SECRET,
                 refreshToken,
@@ -31,14 +31,17 @@
     
     exports.login = (req, res, next) => {
       
-        const code = req.body.code
+        const { code } = req.query
 
         const spotifyApi = new SpotifyWebApi({
-            redirectUri: "http://localhost:3000/",
+            redirectUri: process.env.REDIRECT_URI,
             clientId: process.env.CLIENT_ID,
             clientSecret: process.env.CLIENT_SECRET
         })
         spotifyApi.authorizationCodeGrant(code).then(data => {
+            console.log('--------------------')
+            console.log(data.body.access_token)
+            console.log('--------------------')
             const spotifyToken = new SpotifyToken({
                 accessToken: data.body.access_token,
                 refreshToken: data.body.refresh_token,

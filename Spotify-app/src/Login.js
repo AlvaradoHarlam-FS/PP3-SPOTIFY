@@ -1,7 +1,7 @@
 import React from 'react';
 
 const client_id = process.env.CLIENT_ID
-const REDIRECT_URI = 'http://localhost:3000/'
+const REDIRECT_URI = 'http://localhost:3000/login'
 const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&redirect_uri=${REDIRECT_URI}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
 
 function Login() {
