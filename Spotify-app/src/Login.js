@@ -1,41 +1,21 @@
-import React from 'react';
-
-const client_id = process.env.CLIENT_ID
-const REDIRECT_URI = 'http://localhost:3000/login'
-const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&redirect_uri=${REDIRECT_URI}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
-
-function Login() {
-    return (
-        <div>
-            <div style={styles.center}>
-                <a style={styles.btn} href={AUTH_URL}>Spotify Login</a>
-            </div>
-        </div>
-    );
-}
+import React from "react"
+import { Container } from "react-bootstrap"
 
 
-export default Login;
 
-const styles = {
-    btn: {
-        backgroundColor: "green",
-        textAlign: 'center',
-        display: 'flex',
-        width: '15rem',
-        padding: '1rem',
-        cursor: 'pointer',
-        fontSize: '30px',
-        color: 'white',
-        textDecoration: 'none',
-        borderRadius: '15px'
-    },
-    center: {
-        margin: 0,
-        verticalAlign: 'middle',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '1rem'
-    }
+
+const AUTH_URL = 
+  `https://accounts.spotify.com/authorize?client_id=25e16af2f17a40cd808ea48ff4f09045&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
+
+export default function Login() {
+  return (
+    <Container
+      className="d-flex justify-content-center align-items-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <a className="btn btn-success btn-lg" href={AUTH_URL}>
+        Login With Spotify
+      </a>
+    </Container>
+  )
 }
