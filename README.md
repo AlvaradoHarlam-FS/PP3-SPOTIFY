@@ -10,10 +10,15 @@ Application for browsing the Spotify API.
 
 ### Technologies
 
-- React
-- Next.js
-- TailwindCSS
-- Spotify API
+- spotify-web-api-node: 5.0.2
+- axios: 1.3.4
+- bootstrap: 3.4.1
+- dotenv: 16.0.3
+- MongoDB: 7.0.0
+- body-parser: 1.20.2
+- cors: 2.8.5
+- dotenv: 16.0.3
+- express: 4.18.2
 
 ## Prerequisites
 
@@ -26,6 +31,10 @@ To get started with the project, follow the instructions below.
 
 Clone the repository:
 git clone
+npm install
+
+npm start - frontend
+npm run devStart - backend
 
 ```
 ## Links: https://github.com/AlvaradoHarlam-FS/PP3-SPOTIFY.git
